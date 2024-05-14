@@ -83,18 +83,19 @@ export class UserService {
     });
   }
 
-  updateUser(id: string, formData: FormData): Observable<any> {
-    const url = `${authApiURL}/updateuser/${id}`;
-    return this.http.put(url, formData).pipe(
-      tap((updatedUser: any) => {
-        console.log('Updated user from backend:', updatedUser); // Debugging
-        this.isupdatedSubject.next(true);
-        this.userUpdated.emit(); // Emit event when user is updated
-        this.authService.refreshUserInfo(updatedUser); // Refresh token and user info
-        console.log('User info refreshed with new data.'); // Debugging
-      })
-    );
-  }
+  // UserService
+updateUser(id: string, formData: FormData): Observable<any> {
+  const url = `${authApiURL}/updateuser/${id}`;
+  return this.http.put(url, formData).pipe(
+    tap((updatedUser: any) => {
+      console.log('Updated user from backend:', updatedUser);
+      if (id === this.authService.getUserInfo().userId) {  // Ensure only to update when the IDs match
+        this.authService.updateUserInfo(updatedUser);
+        console.log('User info refreshed with new data.');
+      }
+    })
+  );
+}
 
   getEntrepriseById(id: string): Observable<Entreprise> {
     return this.http.get<Entreprise>(`${authApiURL}/entreprise/${id}`);

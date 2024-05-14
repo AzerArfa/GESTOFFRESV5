@@ -1,4 +1,3 @@
-<!-- addoffre.component.html -->
 <div class="full-screen-container">
     <div class="form-container">
       <h2>Add Offer</h2>
@@ -10,10 +9,16 @@
           <input type="text" placeholder="Description" [(ngModel)]="newOffer.description" name="description" required>
         </div>
         <div class="input-box">
+          <input type="text" placeholder="Localisation" [(ngModel)]="newOffer.localisation" name="localisation" required>
+        </div>
+        <div class="input-box">
           <input type="date" placeholder="Submission Deadline" [(ngModel)]="datelimitesoumissionFormatted" name="datelimitesoumission" required>
         </div>
         <div class="input-box">
-          <input type="file" (change)="onFileSelected($event)" name="img">
+          <input type="file" (change)="onImageSelected($event)" name="img">
+        </div>
+        <div class="input-box">
+          <input type="file" (change)="onDocumentSelected($event)" name="document" accept="application/pdf">
         </div>
         <button type="submit" class="btn">Create Offer</button>
       </form>

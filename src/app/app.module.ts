@@ -25,6 +25,7 @@ import { UpdateEntrepriseComponent } from './update-entreprise/update-entreprise
 import { OffresadminComponent } from './offresadmin/offresadmin.component';
 import { UpdateofferComponent } from './updateoffer/updateoffer.component';
 import { AddoffreComponent } from './addoffre/addoffre.component';
+import { DetailsoffreComponent } from './detailsoffre/detailsoffre.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { AddoffreComponent } from './addoffre/addoffre.component';
     UpdateEntrepriseComponent,
     OffresadminComponent,
     UpdateofferComponent,
-    AddoffreComponent
+    AddoffreComponent,
+    DetailsoffreComponent
   ],
   imports: [
     BrowserModule,

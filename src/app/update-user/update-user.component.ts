@@ -70,12 +70,10 @@ export class UpdateUserComponent implements OnInit {
         console.log('User updated successfully', response);
 
         // Emit the user change event
-        this.userService.userUpdated.emit(response);
+        
 
         // Navigate to dummy route and back to force navbar reload
-        this.router.navigate(['/navbar']).then(() => {
-          this.router.navigate([`/profile/${this.currentUser.id}`]);
-        });
+        this.router.navigate([`/profile/${this.currentUser.id}`]);
       },
       error => {
         console.error('Error updating user', error);

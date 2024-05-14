@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { offerApiURL } from '../config';
+import { userofferApiURL } from '../config';
 import { Offer } from '../model/offer.model';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';// Make sure you have this package or a similar one for UUID handling
@@ -22,7 +23,9 @@ export class OfferService {
   getAllOffers(): Observable<Offer[]> {
     return this.http.get<Offer[]>(`${offerApiURL}`, { headers: this.getAuthHeaders() });
   }
-
+  getAllOffersuser(): Observable<Offer[]> {
+    return this.http.get<Offer[]>(`${userofferApiURL}`, { headers: this.getAuthHeaders() });
+  }
   getOfferById(offerId: string): Observable<Offer> {
     return this.http.get<Offer>(`${offerApiURL}/${offerId}`, { headers: this.getAuthHeaders() });
   }

@@ -19,7 +19,7 @@ export class HomeComponent implements OnInit {
   }
 
   private loadAllOffers(): void {
-    this.offerService.getAllOffers().subscribe({
+    this.offerService.getAllOffersuser().subscribe({
       next: (offers) => {
         this.offers = offers;
         this.isLoading = false;
