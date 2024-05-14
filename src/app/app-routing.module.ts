@@ -12,8 +12,11 @@ import { AddentrepriseComponent } from './addentreprise/addentreprise.component'
 import { NavbarComponent } from './navbar/navbar.component';
 import { UpdateEntrepriseComponent } from './update-entreprise/update-entreprise.component';
 import { OffresadminComponent } from './offresadmin/offresadmin.component';
+import { UpdateofferComponent } from './updateoffer/updateoffer.component';
+import { AddoffreComponent } from './addoffre/addoffre.component';
 
 const routes: Routes = [
+  {path:"addOffre/:id",component:AddoffreComponent},
   {path:"offresadmin/:id",component:OffresadminComponent},
   {path:"home", component:HomeComponent},
   {path:"about", component:AboutComponent},
@@ -22,6 +25,7 @@ const routes: Routes = [
   {path:"addUser",component:AddUserComponent},
   {path:"signUp",component:SignUpComponent},
   {path: "updateUser/:id", component: UpdateUserComponent},
+  {path:"updateOffre/:id",component:UpdateofferComponent},
   {path:"updateEntreprise/:id",component:UpdateEntrepriseComponent},
   {path:"profile/:id",component:ProfileComponent},
   { path: 'navbar', component: NavbarComponent } ,

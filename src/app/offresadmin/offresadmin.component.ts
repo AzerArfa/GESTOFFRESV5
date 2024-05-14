@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { OfferService } from '../services/offer.service'; // Adjust the path as needed
-import { Offer } from '../model/offer.model'; // Adjust the path as needed
+import { OfferService } from '../services/offer.service';
+import { Offer } from '../model/offer.model';
 
 @Component({
   selector: 'app-offresadmin',
@@ -11,16 +11,30 @@ import { Offer } from '../model/offer.model'; // Adjust the path as needed
 export class OffresadminComponent implements OnInit {
   offers: Offer[] = [];
   isLoading = true; // Track loading state
+  entrepriseId: string | null = null;
 
-  constructor(private offerService: OfferService, private route: ActivatedRoute) { }
+  constructor(private offerService: OfferService, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
-      const entrepriseId = params['id']; // Make sure 'id' is the correct param key as set in your routing
-      if (entrepriseId) {
-        this.getOffersByEntreprise(entrepriseId);
+      this.entrepriseId = params['id']; // Directly set entrepriseId from route parameters
+      if (this.entrepriseId) {
+        this.getOffersByEntreprise(this.entrepriseId);
       }
     });
+  }
+
+  supprimerOffre(id: string): void {
+    let conf = confirm("Etes-vous sur ?");
+    if (conf) {
+      this.offerService.deleteOffer(id).subscribe(() => {
+        console.log('Offre supprimé');
+        window.location.reload(); // Reload the page after successful deletion
+      }, (error) => {
+        console.warn(error); // Log as warning instead of error
+        window.location.reload(); // Reload the page even if an error occurs
+      });
+    }
   }
 
   private getOffersByEntreprise(entrepriseId: string): void {
@@ -32,7 +46,6 @@ export class OffresadminComponent implements OnInit {
       error: (error) => {
         console.error('Failed to load offers:', error);
         this.isLoading = false;
-        // Handle errors appropriately in your UI
       }
     });
   }

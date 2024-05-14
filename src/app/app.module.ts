@@ -23,6 +23,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { AddentrepriseComponent } from './addentreprise/addentreprise.component';
 import { UpdateEntrepriseComponent } from './update-entreprise/update-entreprise.component';
 import { OffresadminComponent } from './offresadmin/offresadmin.component';
+import { UpdateofferComponent } from './updateoffer/updateoffer.component';
+import { AddoffreComponent } from './addoffre/addoffre.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,9 @@ import { OffresadminComponent } from './offresadmin/offresadmin.component';
     NavbarComponent,
     AddentrepriseComponent,
     UpdateEntrepriseComponent,
-    OffresadminComponent
+    OffresadminComponent,
+    UpdateofferComponent,
+    AddoffreComponent
   ],
   imports: [
     BrowserModule,

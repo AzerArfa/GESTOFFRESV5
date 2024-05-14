@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Update Offer</title>
+</head>
+<body>
+  <div class="full-screen-container">
+    <div class="form-container">
+      <h2>Update Offer</h2>
+      <form (ngSubmit)="updateOffer()">
+        <div class="input-box">
+          <input type="text" [(ngModel)]="currentOffer.titre" name="titre" class="form-control" placeholder="Title">
+        </div>
+        <div class="input-box">
+          <textarea [(ngModel)]="currentOffer.description" name="description" class="form-control" placeholder="Description"></textarea>
+        </div>
+        <div class="input-box">
+            <input type="date" [(ngModel)]="datelimitesoumissionFormatted" name="datelimitesoumission" class="form-control" placeholder="Submission Deadline">
+ </div>
+        <div class="input-box">
+          <input type="file" (change)="onFileSelected($event)" name="img">
+        </div>
+        <button type="submit" class="btn">Update Offer</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

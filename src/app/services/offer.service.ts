@@ -31,12 +31,12 @@ export class OfferService {
     return this.http.get<Offer[]>(`${offerApiURL}/entreprises/${entrepriseId}/offers`, { headers: this.getAuthHeaders() });
   }
 
-  createOffer(offer: Offer): Observable<Offer> {
-    return this.http.post<Offer>(`${offerApiURL}`, offer, { headers: this.getAuthHeaders() });
+  createOffer(formData: FormData): Observable<Offer> {
+    return this.http.post<any>(`${offerApiURL}`, formData, { headers: this.getAuthHeaders() });
   }
 
-  updateOffer(offerId: string, offer: Offer): Observable<Offer> {
-    return this.http.put<Offer>(`${offerApiURL}/${offerId}`, offer, { headers: this.getAuthHeaders() });
+  updateOfferFormData(offerId: string, formData: FormData): Observable<any> {
+    return this.http.put<any>(`${offerApiURL}/${offerId}`, formData, { headers: this.getAuthHeaders() });
   }
 
   deleteOffer(offerId: string): Observable<any> {
