@@ -14,9 +14,11 @@ import { UpdateEntrepriseComponent } from './update-entreprise/update-entreprise
 import { OffresadminComponent } from './offresadmin/offresadmin.component';
 import { UpdateofferComponent } from './updateoffer/updateoffer.component';
 import { AddoffreComponent } from './addoffre/addoffre.component';
+import { DetailsoffreComponent } from './detailsoffre/detailsoffre.component';
 
 const routes: Routes = [
   {path:"addOffre/:id",component:AddoffreComponent},
+  {path:"detailsOffre/:id",component:DetailsoffreComponent},
   {path:"offresadmin/:id",component:OffresadminComponent},
   {path:"home", component:HomeComponent},
   {path:"about", component:AboutComponent},

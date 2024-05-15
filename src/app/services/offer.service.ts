@@ -29,6 +29,9 @@ export class OfferService {
   getOfferById(offerId: string): Observable<Offer> {
     return this.http.get<Offer>(`${offerApiURL}/${offerId}`, { headers: this.getAuthHeaders() });
   }
+  getOfferByIdUser(offerId: string): Observable<Offer> {
+    return this.http.get<Offer>(`${userofferApiURL}/${offerId}`, { headers: this.getAuthHeaders() });
+  }
 
   getOffersByEntrepriseId(entrepriseId: string): Observable<Offer[]> {
     return this.http.get<Offer[]>(`${offerApiURL}/entreprises/${entrepriseId}/offers`, { headers: this.getAuthHeaders() });

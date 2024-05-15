@@ -1,1 +1,49 @@
-<p>detailsoffre works!</p>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+<div class="container">
+    <div class="card">
+        <div class="card-body" >
+            <h3 class="card-title">{{currentOffer.titre}}</h3>
+            <div class="row">
+                <div class="col-lg-5 col-md-5 col-sm-6">
+                    <div class="white-box text-center"><img  [src]="currentOffer.img ? 'data:image/png;base64,' + currentOffer.img : 'https://bootdey.com/img/Content/avatar/avatar7.png'"  class="img-responsive" width="300px" height="300px"></div>
+                </div>
+                <div class="col-lg-7 col-md-7 col-sm-6">
+                    <h4 class="box-title mt-5">Description d'offre</h4>
+                    <p>{{currentOffer.description}}</p>
+                    <h2 class="mt-5">
+                        <small class="text-success" >{{currentOffer.localisation}}</small>
+                    </h2>
+                   
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <h3 class="box-title mt-5">Entreprise Info</h3>
+                    <div class="table-responsive">
+                      <table class="table table-striped table-product">
+                        <tbody>
+                          <tr>
+                            <td width="390">Nom</td>
+                            <td>{{ currentEntreprise.name }}</td>
+                          </tr>
+                         
+                          <tr>
+                            <td>Secteur d'activité</td>
+                            <td>{{ currentEntreprise.secteuractivite }}</td>
+                          </tr>
+                          <tr>
+                            <td>Adresse</td>
+                            <td>{{ currentEntreprise.adresse }}</td>
+                          </tr>
+                          <tr>
+                            <td>Ville</td>
+                            <td>{{ currentEntreprise.ville }}</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
